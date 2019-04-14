@@ -12,13 +12,13 @@
 ```js
 //根据传过来的id去删除对应的数据
 //1.过滤出id!=id的项,重新赋值给list
-// this.list = this.list.filter(item => item.id !== id);
+this.list = this.list.filter(item => item.id !== id);
 //2.根据id找到对应的索引,根据索引去删除对应的任务
-// let index = this.list.findIndex(item => item.id === id);
-// this.list.splice(index, 1);
+let index = this.list.findIndex(item => item.id === id);
+this.list.splice(index, 1);
 //3.传过来的是索引,根据索引去删除对应的数据
 // console.log(idx);
-// this.list.splice(idx, 1);
+this.list.splice(idx, 1);
 ```
 
 ## 3. 按回车键添加数据
@@ -179,3 +179,11 @@ watch: {
 ```
 
 以后获取数据就从本地存储中获取(再把 json 格式字符串转化成数组)
+
+## 14. 使用钩子函数 created, 实现在数据响应成功后,获取本地的数据
+
+```js
+created() {
+    this.list = JSON.parse(localStorage.getItem("list")) || [];
+}
+```
