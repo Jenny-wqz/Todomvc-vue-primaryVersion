@@ -1,7 +1,8 @@
 (function(window) {
 	("use strict");
 	//以后获取数据就从本地存储中获取(再把接送格式字符串转化成数组)
-	const list = JSON.parse(localStorage.getItem("list"));
+	// 防止本地中没有数据
+	const list = JSON.parse(localStorage.getItem("list")) || [];
 	const vm = new Vue({
 		el: "#app",
 		data: {
