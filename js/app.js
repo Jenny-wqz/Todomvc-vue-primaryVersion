@@ -2,7 +2,7 @@
 	("use strict");
 	//以后获取数据就从本地存储中获取(再把接送格式字符串转化成数组)
 	// 防止本地中没有数据
-	// const list = JSON.parse(localStorage.getItem("list")) || [];
+	// const list = JSON.parse(localStorage.getItem("list") || '[]') ;
 	const vm = new Vue({
 		el: "#app",
 		data: {
@@ -144,7 +144,7 @@
 		},
 		//在数据响应成功后拿到内存中的数据(使用钩子函数created)
 		created() {
-			this.list = JSON.parse(localStorage.getItem("list")) || [];
+			this.list = JSON.parse(localStorage.getItem("list") || "[]");
 		}
 	});
 })(window);
